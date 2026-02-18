@@ -1,13 +1,19 @@
 
 export default function Navbar () {
-    const navStyle = "nav h-15 bg-gray-400 fixed flex top-0 left-0 right-0 w-full items-center";
-    const buttonStyle = "";
+    const navStyle: string = "flex h-20 w-full top-0 nav bg-gray-400 items-center";
+    const mainNavContent: string = "flex h-[80%] w-250 mx-auto left-0 right-0 items-center justify-evenly"
+    const logoStyle = "h-[75%] aspect-square";
+    const buttonStyle = "h-[75%] hover:bg-gray-500 rounded-xl ml-2"
+    const inputSyle = "bg-white h-[75%] ml-auto mr-20 w-[50%]" 
     const logoLocation: string = "../asset/logo.png" 
     return (
-    <div className="nav h-15 bg-gray-400 fixed flex top-0 left-0 right-0 w-full items-center">
-        <a href="loginpage"><img src={logoLocation} alt="logo" className="size-10 m-0.5"/></a>
-        <button className="p-0.5 bg-gray-500 border-x-2 text-white ">Home</button>
-        <input className="ml-auto mr-20 w-[15%] bg-amber-50" type="text" placeholder="search"/>
+    <div className={navStyle}>
+        <div className={mainNavContent}>
+                <a href="loginpage"><img src={logoLocation} alt="logo" className={logoStyle}/></a>
+                <button className={buttonStyle}>Home</button>
+                <input className={inputSyle} type="text" placeholder="search"/>
+                {/* <a href="" */}
+        </div>
     </div>
     )
 }

@@ -8,8 +8,6 @@ function App() {
   return (
     <>
       <Navbar></Navbar>
-      <HelloDiv isLogin={value}></HelloDiv>
-      <HelloDiv isLogin={false}></HelloDiv>
     </>
 
   )
