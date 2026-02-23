@@ -1,37 +1,17 @@
 import { Link } from "react-router"
+import type { ItemDetail } from "../types/ItemDetail";
+import Item from "./Item";
 
-type ItemListHolder = {
-    id: number
-    name: string
-}
-
-const items: ItemListHolder[] = [
-    {
-        id: 1,
-        name: "item no 1"
-    },
-    {
-        id: 2,
-        name: "item no 2"
-    },
-      {
-        id: 3,
-        name: "item no 3"
-    },
-    {
-        id: 4,
-        name: "item no 4"
-    }
-]
-export default function ItemListPage () {
-    return (<>
-        {items.map((item) => (
-            <Link key={item.id} to={`/item/${item.id}`}>
-                <div>
-                    <p>id= {item.id}</p>
-                    <p>name={item.name}</p>
-                </div>
-            </Link>
-        ))}
-    </>);
+export default function ItemListPage({ items }: { items: ItemDetail[] }) {
+    return (
+        <div className="grid grid-cols-4 gap-4">
+            {items.map(item => (
+                <Link key={item.id} to={`/item/${item.id}`}>
+                    <div>
+                        <Item key={item.id} item={item} />
+                    </div>
+                </Link>
+            ))}
+        </div>
+    )
 }
