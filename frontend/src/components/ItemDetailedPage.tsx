@@ -1,4 +1,3 @@
-import caseImage from '../assets/case-01.jpg';
 
 interface ItemDetail {
     id: number;
@@ -19,7 +18,7 @@ let itemHolder: ItemDetail = {
     description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam laborum adipisci dolores qui porro excepturi, cupiditate earum voluptatum sit ea unde consequatur exercitationem. Nulla laudantium fuga, at ratione deleniti animi.",
     cost: 250,
     unit: "$",
-    imagePath: caseImage,
+    imagePath: "case-01.jpg",
     imageDescription: "a item in sale",
     inStock: 20,
     discount: true,
