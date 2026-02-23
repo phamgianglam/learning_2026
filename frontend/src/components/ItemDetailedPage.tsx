@@ -1,3 +1,4 @@
+import { useParams } from 'react-router';
 
 interface ItemDetail {
     id: number;
@@ -18,7 +19,7 @@ let itemHolder: ItemDetail = {
     description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam laborum adipisci dolores qui porro excepturi, cupiditate earum voluptatum sit ea unde consequatur exercitationem. Nulla laudantium fuga, at ratione deleniti animi.",
     cost: 250,
     unit: "$",
-    imagePath: "case-01.jpg",
+    imagePath: "/case-01.jpg",
     imageDescription: "a item in sale",
     inStock: 20,
     discount: true,
@@ -38,7 +39,8 @@ function renderPrice() {
 export default function ItemDetailedPage() {
     return <div>
         <h1 id="name" className="font-bold text-3xl">{itemHolder.name}</h1>
-        <br></br>
+        <br/>
+
         <div id="itemPanel" className="flex justify-evenly">
             <div id="itemImagePanel" className="flex-1">
                 <img src={itemHolder.imagePath} alt={itemHolder.imageDescription} className="size-150 bg-amber-600" />
@@ -57,6 +59,7 @@ export default function ItemDetailedPage() {
                 </div>
             </div>
         </div>
+
         <br />
         <div id="itemDescriptionPanel" className="flex flex-col">
             <h2 id="descriptionTitle" className="font-bold text-2xl">Description</h2>

@@ -7,7 +7,7 @@ export const mockItems: ItemDetail[] = [
         description: "High-quality noise-canceling wireless headphones with up to 30 hours of battery life. Perfect for travel or focused work.",
         cost: 250,
         unit: "$",
-        imagePath: "case-01.jpg",
+        imagePath: "/case-01.jpg",
         imageDescription: "Black over-ear wireless headphones",
         inStock: 20
     },
@@ -17,7 +17,7 @@ export const mockItems: ItemDetail[] = [
         description: "Comfortable ergonomic chair with lumbar support, adjustable height, and breathable mesh back. Ideal for long work sessions.",
         cost: 180,
         unit: "$",
-        imagePath: "case-02.jpg",
+        imagePath: "/case-02.jpg",
         imageDescription: "Black mesh office chair",
         inStock: 5
     },
@@ -27,7 +27,7 @@ export const mockItems: ItemDetail[] = [
         description: "Tactile mechanical keyboard with RGB backlighting and customizable switches. Enhances typing speed and gaming performance.",
         cost: 120,
         unit: "$",
-        imagePath: "case-03.jpg",
+        imagePath: "/case-03.jpg",
         imageDescription: "RGB mechanical keyboard",
         inStock: 15
     },
@@ -37,7 +37,7 @@ export const mockItems: ItemDetail[] = [
         description: "Ultra HD 4K monitor with vibrant colors, fast response time, and ultra-thin bezels. Great for design work and gaming.",
         cost: 320,
         unit: "$",
-        imagePath: "case-01.jpg",
+        imagePath: "/case-01.jpg",
         imageDescription: "27-inch 4K monitor showing a landscape",
         inStock: 0
     }

@@ -1,18 +1,22 @@
 import './App.css'
-import Navbar from './components/Navbar';
-import ItemDetailedPage from './components/ItemDetailedPage';
-import ItemListPage from './components/ItemListPage';
-import { mockItems } from './data/mockItems';
+import Navbar from './components/Navbar'
+import ItemDetailedPage from './components/ItemDetailedPage'
+import ItemListPage from './components/ItemListPage'
+import NotFound from './components/NotFound'
+import { mockItems } from './data/mockItems'
+import { Routes, Route } from 'react-router'
 
 function App() {
-  let value: boolean = true;
   return (
     <>
-      <Navbar></Navbar>
+      <Navbar />
       <div></div>
-      <div className='bg-white w-250 mx-auto'>
-        {/* <ItemDetailedPage></ItemDetailedPage> */}
-        <ItemListPage items={mockItems}></ItemListPage>
+      <div className="bg-white w-250 mx-auto">
+        <Routes>
+          <Route path="/" element={<ItemListPage items={mockItems}/>} />
+          <Route path="/item/:id" element={<ItemDetailedPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </div>
       <div></div>
     </>
