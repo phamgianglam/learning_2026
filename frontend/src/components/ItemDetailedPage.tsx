@@ -1,5 +1,3 @@
-import { useParams } from 'react-router';
-
 interface ItemDetail {
     id: number;
     name: string;
