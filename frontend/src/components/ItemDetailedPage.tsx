@@ -1,3 +1,4 @@
+import { useParams } from 'react-router';
 import caseImage from '../assets/case-01.jpg';
 
 interface ItemDetail {
@@ -37,6 +38,9 @@ function renderPrice() {
 }
 
 export default function ItemDetailedPage() {
+    const {id} = useParams<{id: string}> ();
+    console.log("render detail for item with id" + id)
+
     return <div>
         <h1 id="name" className="font-bold text-3xl">{itemHolder.name}</h1>
         <br></br>
