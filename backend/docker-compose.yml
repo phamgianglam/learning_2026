@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: computer-ecomerce-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+      TZ: "Asia/Ho_Chi_Minh"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
