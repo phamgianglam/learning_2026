@@ -13,7 +13,7 @@ function App() {
       <div></div>
       <div className="bg-white w-250 mx-auto">
         <Routes>
-          <Route path="/" element={<ItemListPage items={mockItems}/>} />
+          <Route path="/" element={<ItemListPage/>} />
           <Route path="/item/:id" element={<ItemDetailedPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

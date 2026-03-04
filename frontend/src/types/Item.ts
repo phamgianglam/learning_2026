@@ -1,3 +1,4 @@
+
 export interface ItemDetail {
     id: number;
     name: string;
@@ -7,4 +8,6 @@ export interface ItemDetail {
     imagePath: string;
     imageDescription: string;
     inStock: number;
+    discount: boolean;
+    discountPrice: number;
 }

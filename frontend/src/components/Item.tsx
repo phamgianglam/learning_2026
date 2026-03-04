@@ -1,4 +1,4 @@
-import type { ItemDetail } from "../types/ItemDetail";
+import type { ItemDetail } from "../types/Item";
 
 function rederInStock(inStock: number) {
     if (inStock > 0) {
