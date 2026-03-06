@@ -1,7 +1,8 @@
 import type { ItemDetail } from "../types/Item";
+import config from "../config";
 
-const base_url = import.meta.env.VITE_BACKEND_SERVICE_URL
-const item_url = `${base_url}/item`
+const base_url = config.apiUrl;
+const item_url = `${base_url}/items`;
 
 class ItemClient {
     async getItem(id: string): Promise<ItemDetail>{

@@ -3,7 +3,6 @@ import Navbar from './components/Navbar'
 import ItemDetailedPage from './components/ItemDetailedPage'
 import ItemListPage from './components/ItemListPage'
 import NotFound from './components/NotFound'
-import { mockItems } from './data/mockItems'
 import { Routes, Route } from 'react-router'
 
 function App() {

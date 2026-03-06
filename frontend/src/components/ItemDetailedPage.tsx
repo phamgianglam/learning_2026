@@ -1,7 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { itemClient } from "../api/item";
+import { itemClient } from "../api/itemClient";
 import { useParams } from "react-router";
 import type { ItemDetail } from "../types/Item";
+import config from "../config";
+
+const base_url = config.apiUrl;
 
 export default function ItemDetailedPage() {
     const {id} = useParams<{id: string}> ();
@@ -32,13 +35,15 @@ export default function ItemDetailedPage() {
 
     if (!item) return <div className="p-10 text-center">Item not found.</div>;
 
+    const imagePath = `${base_url}/images/${item.imagePath}`
+
     return <div>
         <h1 id="name" className="font-bold text-3xl">{item.name}</h1>
         <br/>
 
         <div id="itemPanel" className="flex justify-evenly">
             <div id="itemImagePanel" className="flex-1">
-                <img src={item.imagePath} alt={item.imageDescription} className="size-150 bg-amber-600" />
+                <img src={imagePath} alt={item.imageDescription} className="size-150 bg-amber-600" />
             </div>
             <div id="itemPricingAndBuyingPanel" className="flex flex-col justify-between w-50 h-40">
                 <div id="pricingPanel" className="rounded-xl p-0.5">

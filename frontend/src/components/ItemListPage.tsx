@@ -1,6 +1,6 @@
 import { Link } from "react-router"
 import Item from "./Item";
-import { itemClient } from "../api/item";
+import { itemClient } from "../api/itemClient";
 import { useQuery } from "@tanstack/react-query";
 
 export default function ItemListPage() {

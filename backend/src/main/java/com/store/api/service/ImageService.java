@@ -33,7 +33,7 @@ public class ImageService {
         var extension = contentType.substring(contentType.lastIndexOf("/") + 1);
         Path destination = Path.of(imageFolder, itemId + "." + extension);
         Files.write(destination, file.getBytes());
-        item.setImagePath(destination.toString());
+        item.setImagePath(itemId + "." + extension);
         itemRepository.save(item);
     }
 
