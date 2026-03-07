@@ -1,4 +1,8 @@
-import type { ItemDetail } from "../types/ItemDetail";
+import type { ItemDetail } from "../types/Item";
+
+import config from "../config";
+
+const base_url = config.apiUrl;
 
 function rederInStock(inStock: number) {
     if (inStock > 0) {
@@ -8,9 +12,12 @@ function rederInStock(inStock: number) {
     }
 }
 export default function Item({ item }: { item: ItemDetail }) {
+
+    const imagePath = `${base_url}/images/${item.imagePath}`
+    
     return (
         <div>
-            <img src={item.imagePath} alt={item.imageDescription} className="w-full aspect-square" />
+            <img src={imagePath} alt={item.imageDescription} className="w-full aspect-square" />
             <h2>{item.name}</h2>
             <p className="text-blue-600 font-bold">{item.cost} {item.unit}</p>
             {rederInStock(item.inStock)}
