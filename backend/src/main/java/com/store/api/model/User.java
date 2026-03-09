@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class User extends AbstractAuditModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
