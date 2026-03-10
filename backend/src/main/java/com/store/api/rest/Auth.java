@@ -1,6 +1,7 @@
 package com.store.api.rest;
 
 import com.store.api.dto.LoginUserDto;
+import com.store.api.service.AuthService;
 import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

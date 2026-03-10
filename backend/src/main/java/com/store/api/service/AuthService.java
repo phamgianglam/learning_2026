@@ -1,9 +1,13 @@
 package com.store.api.service;
 
+import Util.Helper;
 import com.store.api.dto.LoginUserDto;
 import com.store.api.model.User;
+import com.store.api.repository.UserRepository;
+import com.store.api.repository.UserTokenRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -18,14 +22,27 @@ public class AuthService {
     private UserRepository userRepository;
 
     @Autowired
-    private UserToknRepository userToknRepository;
+    private UserTokenRepository userTokenRepository;
+
+    @Autowired
+    private Helper helper;
 
     public String login(LoginUserDto userDto) {
-        User user = userRepository.findByUsername(userDto.getUsername());
+        User user = userRepository.findByUsername(userDto.getUsername()).orElseThrow(
+                () -> new AuthenticationException("Invalid username or password") {;
+        });
 
         if (!passwordEncoder.matches(userDto.getPassword(), user.getPassword())) {
-
+            throw new AuthenticationException("Invalid username or password") {
+            };
         }
-        return "token";
+
+        return helper.createToken(user.getId());
     }
+
+    public String logout() {
+        // Implement logout logic if needed, such as invalidating tokens or clearing session data
+        return "Logout successful";
+    }
+
 }
