@@ -38,9 +38,9 @@ public class JwtFilter extends OncePerRequestFilter {
 
             Optional<UserToken> token = userTokenRepository.findByTokenAndUserId(jwt, userId);
 
-            if (token.isRevoked() || !token.isValid()) {
-                // return 403
-            }
+//            if (token.isRevoked() || !token.isValid()) {
+//                // return 403
+//            }
 
             filterChain.doFilter(request, response);
         }
