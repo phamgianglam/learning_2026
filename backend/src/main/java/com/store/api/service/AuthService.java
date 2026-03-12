@@ -1,6 +1,6 @@
 package com.store.api.service;
 
-import Util.Helper;
+import com.store.api.util.Helper;
 import com.store.api.dto.LoginUserDto;
 import com.store.api.model.User;
 import com.store.api.repository.UserRepository;

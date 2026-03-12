@@ -3,11 +3,13 @@ package com.store.api.model;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 
 @Entity
 @Table(name = "items")
-@Data
 @Builder
+@Data
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
 public class Item extends AbstractAuditModel {
@@ -41,11 +43,8 @@ public class Item extends AbstractAuditModel {
 
     private Double discountPrice;
 
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt;
-
     @PrePersist
     protected void onCreate() {
-        this.createdAt = LocalDateTime.now();
+        this.createdAt= ZonedDateTime.now();
     }
 }

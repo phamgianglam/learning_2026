@@ -1,5 +1,7 @@
 package com.store.api.config;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -7,12 +9,15 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 
-import java.util.Arrays;
 import java.util.List;
 
 @EnableWebSecurity
 @Configuration
+@RequiredArgsConstructor
 public class SecurityConfig {
+
+    @Autowired
+    private final JwtFilter jwtFilter;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -26,7 +31,10 @@ public class SecurityConfig {
                     return  corsConfiguration;
                 }
         ))
-        .csrf(csrf -> csrf.disable());
+        .csrf(csrf -> csrf.disable())
+        .authorizeHttpRequests(auth->auth.requestMatchers(
+                "api/auth/**"
+        ).permitAll().anyRequest().authenticated());
 
         return  http.build();
     }

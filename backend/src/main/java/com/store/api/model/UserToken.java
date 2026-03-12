@@ -1,24 +1,26 @@
 package com.store.api.model;
 
-import Util.Helper;
+import com.store.api.util.Helper;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 
 @Entity
 @Table(name = "user_tokens")
-@Data
 @Builder
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(callSuper = false)
 public class UserToken extends AbstractAuditModel {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(referencedColumnName = "id", name="user_id")
-    private long userId;
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
 
     private boolean isRevoked;
 

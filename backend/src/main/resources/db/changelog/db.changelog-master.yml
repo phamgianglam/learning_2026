@@ -15,3 +15,13 @@ databaseChangeLog:
             relativeToChangelogFile: true
         - tagDatabase:
             tag: initial-version
+
+  - changeSet:
+      id: 2
+      author: lampham
+      changes:
+        - sqlFile:
+            path: changes/002-add-auth-token.sql
+            relativeToChangelogFile: true
+        - tagDatabase:
+            tag: update-version

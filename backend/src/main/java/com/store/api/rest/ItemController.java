@@ -5,6 +5,7 @@ import com.store.api.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,6 +23,7 @@ public class ItemController {
      * @return List of all items with HTTP 200
      */
     @GetMapping
+    @PreAuthorize("permitAll()")
     public ResponseEntity<List<Item>> getAllItems() {
         List<Item> items = itemService.getAllItems();
         return ResponseEntity.ok(items);
@@ -34,6 +36,7 @@ public class ItemController {
      * @return Item with HTTP 200, or 404 if not found
      */
     @GetMapping("/{id}")
+    @PreAuthorize("permitAll()")
     public ResponseEntity<Item> getItemById(@PathVariable Long id) {
         return itemService.getItemById(id)
                 .map(ResponseEntity::ok)

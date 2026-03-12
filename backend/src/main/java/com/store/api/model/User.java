@@ -3,6 +3,7 @@ package com.store.api.model;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 
 @Entity
 @Table(name = "users")
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(callSuper = false)
 public class User extends AbstractAuditModel {
 
     @Id
@@ -28,11 +30,8 @@ public class User extends AbstractAuditModel {
     @Column(nullable = false)
     private String role;
 
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt;
-
     @PrePersist
     protected void onCreate() {
-        this.createdAt = LocalDateTime.now();
+        this.createdAt = ZonedDateTime.now();
     }
 }
